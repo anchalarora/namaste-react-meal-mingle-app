@@ -1,0 +1,28 @@
+{
+  "devDependencies": {
+    "parcel": "^2.12.0",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "name": "react-web-app",
+  "version": "1.0.0",
+  "description": "Learn React from scratch",
+  "scripts": {
+    "start" : "parcel index.html",
+    "build":"parcel build index.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anchalarora/learn-react.git"
+  },
+  "author": "Anchal Arora React",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anchalarora/learn-react/issues"
+  },
+  "homepage": "https://github.com/anchalarora/learn-react#readme"
+}
