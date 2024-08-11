@@ -2,31 +2,21 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 
-const heading = React.createElement("h2", {id:"heading1"}, "Hello world from React 1");
-//  * 
-//  * <div>
-//  * <div>
-//  * <h1>I am an h1 tag</h1>
-//  * <h2>I am an h2 tag</h2>
-//  * </div>
-//  * </div>
 
-const parent = React.createElement(
-    "div", {id:"parent"},       
-    [React.createElement("div", {id:"child"}, [
-        React.createElement("h2", {}, "I am an h2 tag"),
-        React.createElement("h1", {}, "I am an h1 tag") 
-    ]), 
-    React.createElement("div", {id:"child2"}, [
-        React.createElement("h2", {}, "I am an h2 tag"),
-        React.createElement("h1", {}, "I am an h1 tag") 
-    ])]
-);
+//React element
+const title = <h1> I am title </h1>;
 
-// put h1 on the Dom using root.
+const number = 2023;
+//React component
+const TitleComponent = () => <h1>I am component 3</h1>
 
-/// all the code will run on root. everything is rendered on root.
-const root = createRoot(document.getElementById("root"));
+const heading = <h1 id="heading" className="head" tabIndex="1">  {TitleComponent()} Namaste React </h1>
 
-root.render(parent);
+const heading2 = <h1 id="heading" className="head" tabIndex="1"> <TitleComponent/> Namaste React </h1>
+
+const heading3 = <h1 id="heading" className="head" tabIndex="1"> <h1>{number}</h1> <TitleComponent> </TitleComponent> Namaste React </h1>
+
+const root = createRoot(document.getElementById("root"))
+
+root.render(heading3);
 
