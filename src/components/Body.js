@@ -127,7 +127,11 @@ const Body = () => {
             </Link>
           ))
         ) : (
-          <p>No Restaurants Found</p>
+          <div className="flex justify-center w-full">
+            <p className="text-center text-gray-700 text-lg">
+              No Restaurants Found, Please refresh
+            </p>
+          </div>
         )}
       </div>
     </div>
