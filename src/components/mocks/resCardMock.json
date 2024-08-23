@@ -1,0 +1,123 @@
+{
+  "info": {
+    "id": "660675",
+    "name": "Cafe Amudham",
+    "cloudinaryImageId": "5dbf65c83eca4c7bd0bbb86bcadffd28",
+    "locality": "5th Block Kormangala",
+    "areaName": "Koramangala",
+    "costForTwo": "₹200 for two",
+    "cuisines": ["South Indian", "Snacks"],
+    "avgRating": 4.6,
+    "veg": true,
+    "parentId": "396620",
+    "avgRatingString": "4.6",
+    "totalRatingsString": "10K+",
+    "promoted": true,
+    "adTrackingId": "cid=17388427~p=0~adgrpid=17388427#ag1~mp=SWIGGY_IN~bl=FOOD~aet=RESTAURANT~aeid=660675~eid=80cb3b71-6106-4538-8ff8-4f93d930ba28~srvts=1724423390775~collid=69584",
+    "sla": {
+      "deliveryTime": 23,
+      "lastMileTravel": 0.9,
+      "serviceability": "SERVICEABLE",
+      "slaString": "20-25 mins",
+      "lastMileTravelString": "0.9 km",
+      "iconType": "ICON_TYPE_EMPTY"
+    },
+    "availability": {
+      "nextCloseTime": "2024-08-24 00:45:00",
+      "opened": true
+    },
+    "badges": {
+      "imageBadges": [
+        {
+          "imageId": "v1690360529/Ratnesh_Badges/Only_on_swiggy_badge_4x.png",
+          "description": "OnlyOnSwiggy"
+        }
+      ],
+      "textExtendedBadges": [
+        {
+          "iconId": "guiltfree/GF_Logo_android_3x",
+          "shortDescription": "options available",
+          "fontColor": "#7E808C"
+        }
+      ]
+    },
+    "isOpen": true,
+    "aggregatedDiscountInfoV2": {
+      "header": "20% OFF",
+      "shortDescriptionList": [
+        {
+          "meta": "Use TRYNEW",
+          "discountType": "Percentage",
+          "operationType": "RESTAURANT"
+        }
+      ],
+      "descriptionList": [
+        {
+          "meta": "20% off up to ₹50 | Use code TRYNEW",
+          "discountType": "Percentage",
+          "operationType": "RESTAURANT"
+        }
+      ]
+    },
+    "type": "F",
+    "badgesV2": {
+      "entityBadges": {
+        "imageBased": {
+          "badgeObject": [
+            {
+              "attributes": {
+                "description": "OnlyOnSwiggy",
+                "imageId": "v1690360529/Ratnesh_Badges/Only_on_swiggy_badge_4x.png"
+              }
+            }
+          ]
+        },
+        "textBased": {},
+        "textExtendedBadges": {
+          "badgeObject": [
+            {
+              "attributes": {
+                "description": "",
+                "fontColor": "#7E808C",
+                "iconId": "guiltfree/GF_Logo_android_3x",
+                "shortDescription": "options available"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "orderabilityCommunication": {
+      "title": {},
+      "subTitle": {},
+      "message": {},
+      "customIcon": {}
+    },
+    "differentiatedUi": {
+      "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+      "differentiatedUiMediaDetails": {
+        "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+        "lottie": {},
+        "video": {}
+      }
+    },
+    "reviewsSummary": {},
+    "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+    "restaurantOfferPresentationInfo": {},
+    "externalRatings": {
+      "aggregatedRating": {
+        "rating": "--"
+      }
+    },
+    "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
+  },
+  "analytics": {
+    "context": "seo-data-c673c3ff-3f2f-4148-8d58-c69ad7a4a127"
+  },
+  "cta": {
+    "link": "https://www.swiggy.com/restaurants/cafe-amudham-5th-block-kormangala-koramangala-bangalore-660675",
+    "text": "RESTAURANT_MENU",
+    "type": "WEBLINK"
+  },
+  "widgetId": "collectionV5RestaurantListWidget_byName"
+}
