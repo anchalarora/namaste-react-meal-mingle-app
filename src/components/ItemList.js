@@ -3,7 +3,6 @@ import { CDN_URL } from "./utils/constants";
 import { addItem } from "./utils/cartSlice";
 
 const ItemList = ({ items }) => {
-  //console.log("items", items[0].card.info.id);
 
   const dispatch = useDispatch();
 
@@ -13,8 +12,6 @@ const ItemList = ({ items }) => {
   };
 
   console.log("items ", items.length);
-
-  //console.log("items", items[0].card.info.id);
   return (
     <div>
       {items && items.length > 0 ? (
@@ -27,6 +24,7 @@ const ItemList = ({ items }) => {
 
           return (
             <div
+              data-testid="foodItems"
               className="p-2 m-2 border-gray-200 border-b-2 text-left flex justify-between"
               key={item.card.info.id}
             >

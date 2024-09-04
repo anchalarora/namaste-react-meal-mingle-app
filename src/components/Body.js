@@ -1,12 +1,10 @@
 import RestaurantCard, { withPromotedRestaurantCard } from "./RestaurantCard";
 
-import ChickenRestaurantCard from "./ChickenRestaurantCard";
-
 import { useState, useEffect, useContext } from "react";
 
 import Shimmer from "./Shimmer";
 
-import { CHICKEN_SHOP_LIST_URL, SWIGGY_LIST_API } from "./utils/constants";
+import { SWIGGY_LIST_API } from "./utils/constants";
 
 import { Link } from "react-router-dom";
 
@@ -117,7 +115,6 @@ const Body = () => {
       <div className="flex flex-wrap">
         {Array.isArray(filteredSearchList) && filteredSearchList.length > 0 ? (
           filteredSearchList.map((restaurant, index) => (
-            // <ChickenRestaurantCard key={restaurant.idMeal} restaurant={restaurant} />
             <Link
               to={"/restaurants/" + restaurant.info.id}
               key={restaurant.info.id + index}
