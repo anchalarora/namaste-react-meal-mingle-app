@@ -35,19 +35,22 @@ const Body = () => {
     try {
       const data = await fetch(SWIGGY_LIST_API);
       const json = await data.json();
-      console.log(" fetched resaturants data ", json);
-      console.log(
-        "resaturants data",
-        json.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle.restaurants
-      );
-      setRestaurants(
-        json.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle.restaurants
-      );
-      setFilteredSearchList(
-        json.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle.restaurants
-      );
-      //setRestaurants(json.meals)
-      //setFilteredSearchList(json.meals)
+
+      function checkJsonData(jsonData) {
+        for (let i = 0; i < jsonData?.data?.cards.length; i++) {
+          let checkData =
+            json?.data?.cards[i]?.card?.card?.gridElements?.infoWithStyle
+              ?.restaurants;
+
+          if (checkData !== undefined) {
+            return checkData;
+          }
+        }
+      }
+      const resData = checkJsonData(json);
+
+      setRestaurants(resData);
+      setFilteredSearchList(resData);
     } catch (error) {
       console.error("Failed to fetch", error);
       setFilteredSearchList([]);

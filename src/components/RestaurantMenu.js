@@ -1,20 +1,12 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 import { MENU_API } from "./utils/constants";
 import Shimmer from "./Shimmer";
-
 import { useParams } from "react-router-dom";
-
-import useRestaurantMenu from "./utils/useRestaurantMenu";
-
 import RestaurantCategory from "./RestaurantCategory";
-
-import UserContext from "./utils/UserContext";
 
 const RestaurantMenu = () => {
   const [restInfo, setRestInfo] = useState(null);
-
   const { resId } = useParams();
-
   const [showIndex, setShowIndex] = useState(0);
 
   useEffect(() => {
@@ -22,66 +14,71 @@ const RestaurantMenu = () => {
   }, [resId]);
 
   const fetchMenuItems = async () => {
-    const data = await fetch(MENU_API + resId + "&submitAction=ENTER");
-
+    const data = await fetch(`${MENU_API}${resId}&submitAction=ENTER`);
     const json = await data.json();
-    console.log("MENU API response ", json);
+    console.log("MENU API response", json);
     setRestInfo(json.data);
   };
 
-  const {
-    name = "Unknown Restaurant",
-    cuisines = [],
-    costForTwoMessage = "Not available",
-    avgRating = "N/A",
-    cloudinaryImageId = "",
-  } = restInfo?.cards?.[2]?.card?.card?.info || {};
+  // Default values
+  let name = "Unknown Restaurant";
+  let cuisines = [];
+  let costForTwoMessage = "Not available";
+  let avgRating = "N/A";
+  let cloudinaryImageId = "";
+  let itemCards = [];
+  let categories = [];
 
-  const { itemCards = [] } =
-    restInfo?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
-      ?.card || {};
+  // Loop through the cards array to find the necessary data
+  restInfo?.cards?.forEach((card) => {
+    const cardInfo = card?.card?.card?.info;
 
-  const categories =
-    restInfo?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
-      (category) =>
-        category.card?.card?.["@type"] ===
-        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
-    );
+    // Check for restaurant info in any card that contains info object
+    if (cardInfo) {
+      name = cardInfo.name || name;
+      cuisines = cardInfo.cuisines || cuisines;
+      costForTwoMessage = cardInfo.costForTwoMessage || costForTwoMessage;
+      avgRating = cardInfo.avgRating || avgRating;
+      cloudinaryImageId = cardInfo.cloudinaryImageId || cloudinaryImageId;
+    }
 
-  console.log(itemCards, "categories", categories);
+    // Check for item cards and categories
+    if (card.groupedCard?.cardGroupMap?.REGULAR?.cards) {
+      card.groupedCard.cardGroupMap.REGULAR.cards.forEach((regularCard) => {
+        // If the card has itemCards, assign them
+        if (regularCard.card?.card?.itemCards) {
+          itemCards = regularCard.card.card.itemCards;
+        }
+
+        // Collect all categories
+        if (
+          regularCard.card?.card?.["@type"] ===
+          "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+        ) {
+          categories.push(regularCard.card.card);
+        }
+      });
+    }
+  });
+
   return restInfo === null ? (
     <Shimmer />
   ) : (
     <div className="text-center">
       <h1 className="font-bold my-4 text-2xl">{name}</h1>
       <p className="font-bold text-lg">
-        {cuisines.join(", ")}- {costForTwoMessage}
+        {cuisines.join(", ")} - {costForTwoMessage}
       </p>
-      <p>Rating : {avgRating}</p>
+      <p>Rating: {avgRating}</p>
       <h1>Menu</h1>
-      {console.log("categories inside", categories)}
-      {categories.map((category, index) => {
-        return (
-          <RestaurantCategory
-            category={category?.card?.card}
-            key={category.card?.card?.title}
-            showItems={index === showIndex ? true : false}
-            setShowIndex={
-              () => setShowIndex(index === showIndex ? null : index) // Toggle logic
-            }
-          />
-        );
-      })}
-      {/* <ul>
-        {itemCards.map((item) => (
-          <li key={item.card.info.id}>
-            {item.card.info.name}- {" Rs."}{" "}
-            {item.card.info.defaultPrice / 100 ||
-              item.card.info.finalPrice / 100 ||
-              item.card.info.price / 100}
-          </li>
-        ))}
-      </ul> */}
+      {categories.map((category, index) => (
+        <RestaurantCategory
+          category={category}
+          key={category?.title}
+          showItems={index === showIndex}
+          setShowIndex={() => setShowIndex(index === showIndex ? null : index)}
+        />
+      ))}
     </div>
   );
 };
