@@ -91,7 +91,7 @@ const Body = () => {
             onClick={() => {
               if (Array.isArray(restaurants)) {
                 const filteredListOfRestaurants = restaurants.filter(
-                  (res) => res.info?.avgRating >= 4
+                  (res) => res.info?.avgRating >= 4.5
                 );
                 setFilteredSearchList(filteredListOfRestaurants);
               } else {
