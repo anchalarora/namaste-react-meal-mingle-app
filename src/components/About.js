@@ -23,15 +23,15 @@ class About extends React.Component {
   render() {
     console.log("Parent render");
     return (
-      <div className="about-container">
-        <h1>About Us Page</h1>
-        <div>
+      <div className="flex justify-center">
+        {/* <h1>About Us Page</h1> */}
+        {/* <div>
           LoggedIn User :
           <UserContext.Consumer>
             {({ loggedInUser }) => <h1>{loggedInUser}</h1>}
           </UserContext.Consumer>
-        </div>
-        <User name="Functional Component" location="React" />
+        </div> */}
+        {/* <User name="Functional Component" location="React" /> */}
         <UserClassBased name="Akshay" location="Uttarakhand" />
       </div>
     );
