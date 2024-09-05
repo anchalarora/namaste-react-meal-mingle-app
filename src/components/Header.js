@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import useOnlineStatus from "./utils/useOnlineStatus";
 import UserContext from "./utils/UserContext";
 import { useSelector } from "react-redux";
+import mealLogo from "../../public/images/mealLogo.png";
 
 const Header = () => {
   const [btnName, setBtnName] = useState("Login");
@@ -16,8 +17,8 @@ const Header = () => {
 
   return (
     <div className="flex justify-between bg-gray-200">
-      <div className="logo-container">
-        <img className="w-48" src={LOGO_URL} />
+      <div className="m-2 p-2">
+        <img className="w-12" src={mealLogo} alt="Meal Logo" />
       </div>
       <div className="flex items-center">
         <ul className="flex m-4">
@@ -36,7 +37,7 @@ const Header = () => {
           <li className="px-4 font-bold">
             <Link to="/cart">Cart - ({cartItems.length} items)</Link>
           </li>
-          <li className="px-4">
+          {/* <li className="px-4">
             <Link to="/grocery">Grocery</Link>
           </li>
           <li className="px-4 font-bold">{loggedInUser}</li>
@@ -47,7 +48,7 @@ const Header = () => {
             }}
           >
             {btnName}
-          </button>
+          </button> */}
         </ul>
       </div>
     </div>
