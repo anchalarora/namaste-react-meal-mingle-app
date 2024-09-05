@@ -1,64 +1,70 @@
 import RestaurantCard, { withPromotedRestaurantCard } from "./RestaurantCard";
-
 import { useState, useEffect, useContext } from "react";
-
 import Shimmer from "./Shimmer";
-
-import { SWIGGY_LIST_API } from "./utils/constants";
-
+import { MEAL_MINGLE_LIST_API } from "./utils/constants";
 import { Link } from "react-router-dom";
-
 import useOnlineStatus from "./utils/useOnlineStatus";
 import UserContext from "./utils/UserContext";
 
 const Body = () => {
-  // state var - super powerful var - use a hook => useState
   const [restaurants, setRestaurants] = useState([]);
   const [filteredSearchList, setFilteredSearchList] = useState([]);
   const [searchText, setSearchText] = useState("");
+  const [loading, setLoading] = useState(true);
 
   const onlineStatus = useOnlineStatus();
-
-  console.log("onlineStatus", onlineStatus);
-
   const PromoteRestaurantCard = withPromotedRestaurantCard(RestaurantCard);
-
   const { setUserName, loggedInUser } = useContext(UserContext);
-
+  console.log("on page load loading state:", loading);
   useEffect(() => {
     fetchData();
   }, []);
 
+  const checkJsonData = (jsonData) => {
+    for (let i = 0; i < jsonData?.data?.cards.length; i++) {
+      const checkData =
+        jsonData?.data?.cards[i]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants;
+
+      if (checkData) {
+        return checkData;
+      }
+    }
+    return [];
+  };
+
   const fetchData = async () => {
     try {
-      const data = await fetch(SWIGGY_LIST_API);
-      const json = await data.json();
-
-      function checkJsonData(jsonData) {
-        for (let i = 0; i < jsonData?.data?.cards.length; i++) {
-          let checkData =
-            json?.data?.cards[i]?.card?.card?.gridElements?.infoWithStyle
-              ?.restaurants;
-
-          if (checkData !== undefined) {
-            return checkData;
-          }
-        }
-      }
+      const response = await fetch(MEAL_MINGLE_LIST_API);
+      const json = await response.json();
       const resData = checkJsonData(json);
 
       setRestaurants(resData);
       setFilteredSearchList(resData);
+      setLoading(false);
+      console.log("data fetched:", resData);
+      console.log("loading state:", loading);
     } catch (error) {
       console.error("Failed to fetch", error);
       setFilteredSearchList([]);
       setRestaurants([]);
+    } finally {
+      setLoading(false);
+      console.log("finaly loading state:", loading);
     }
   };
 
-  if (onlineStatus === false) return <h1>Looks like you are offline</h1>;
+  if (onlineStatus === false) {
+    return (
+      <div className="flex justify-center items-center h-screen w-screen">
+        <h1 className="text-center font-bold text-red-600 pt-20">
+          Looks like you are offline...
+        </h1>
+      </div>
+    );
+  }
 
-  return restaurants?.length === 0 ? (
+  return loading ? (
     <Shimmer />
   ) : (
     <div className="body">
@@ -87,14 +93,10 @@ const Body = () => {
           <button
             className="px-4 py-2 bg-gray-800 text-white rounded-lg"
             onClick={() => {
-              if (Array.isArray(restaurants)) {
-                const filteredListOfRestaurants = restaurants.filter(
-                  (res) => res.info?.avgRating >= 4.5
-                );
-                setFilteredSearchList(filteredListOfRestaurants);
-              } else {
-                console.error("restaurants is not an array");
-              }
+              const filteredListOfRestaurants = restaurants.filter(
+                (res) => res.info?.avgRating >= 4.5
+              );
+              setFilteredSearchList(filteredListOfRestaurants);
             }}
           >
             Top Rated Restaurants
@@ -116,7 +118,7 @@ const Body = () => {
         {Array.isArray(filteredSearchList) && filteredSearchList.length > 0 ? (
           filteredSearchList.map((restaurant, index) => (
             <Link
-              to={"/restaurants/" + restaurant.info.id}
+              to={`/restaurants/${restaurant.info.id}`}
               key={restaurant.info.id + index}
             >
               {restaurant.info.promoted ? (

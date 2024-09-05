@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { MENU_API } from "./utils/constants";
+import { MEAL_MINGLE_MENU_API_URL } from "./utils/constants";
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 import RestaurantCategory from "./RestaurantCategory";
@@ -14,7 +14,9 @@ const RestaurantMenu = () => {
   }, [resId]);
 
   const fetchMenuItems = async () => {
-    const data = await fetch(`${MENU_API}${resId}&submitAction=ENTER`);
+    const data = await fetch(
+      `${MEAL_MINGLE_MENU_API_URL}${resId}&submitAction=ENTER`
+    );
     const json = await data.json();
     console.log("MENU API response", json);
     setRestInfo(json.data);
