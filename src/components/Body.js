@@ -1,7 +1,7 @@
 import RestaurantCard, { withPromotedRestaurantCard } from "./RestaurantCard";
 import { useState, useEffect, useContext } from "react";
 import Shimmer from "./Shimmer";
-import { MEAL_MINGLE_LIST_API } from "./utils/constants";
+import { MEAL_MINGLE_LIST_API_1 } from "./utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "./utils/useOnlineStatus";
 import UserContext from "./utils/UserContext";
@@ -35,7 +35,7 @@ const Body = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch(MEAL_MINGLE_LIST_API);
+      const response = await fetch(MEAL_MINGLE_LIST_API_1);
       const json = await response.json();
       const resData = checkJsonData(json);
 
@@ -101,7 +101,7 @@ const Body = () => {
           >
             Top Rated Restaurants
           </button>
-          <div className="flex items-center space-x-2">
+          {/* <div className="flex items-center space-x-2">
             <label className="text-gray-700">User Name:</label>
             <input
               type="text"
@@ -110,7 +110,7 @@ const Body = () => {
               value={loggedInUser}
               onChange={(e) => setUserName(e.target.value)}
             />
-          </div>
+          </div> */}
         </div>
       </div>
 

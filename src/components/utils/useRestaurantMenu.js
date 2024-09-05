@@ -27,7 +27,7 @@
 
 // export default useRestaurantMenu;
 import { useState, useEffect } from "react";
-import { FOODFIRE_MENU_API_URL } from "../utils/constants";
+import { MEAL_MINGLE_MENU_API_URL } from "../utils/constants";
 
 const useRestaurantMenu = (resId) => {
   console.log("useRestaurantMenu reached");
@@ -45,7 +45,7 @@ const useRestaurantMenu = (resId) => {
     try {
       console.log("fetchRestaurantMenu called");
       const response = await fetch(
-        FOODFIRE_MENU_API_URL + resId + "&submitAction=ENTER"
+        MEAL_MINGLE_MENU_API_URL + resId + "&submitAction=ENTER"
       );
       if (!response.ok) throw new Error("Network response was not ok");
       const json = await response.json();
