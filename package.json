@@ -24,9 +24,10 @@
   "version": "1.0.0",
   "description": "Learn React from scratch",
   "scripts": {
-    "start": "parcel index.html",
+    "start": "parcel serve index.html --port 3000",
     "build": "parcel build index.html",
-    "test": "jest"
+    "test": "jest",
+    "watch-test": "jest --watch"
   },
   "repository": {
     "type": "git",
