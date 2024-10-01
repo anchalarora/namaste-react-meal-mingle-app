@@ -1,7 +1,7 @@
 const Footer = () => {
   const year = new Date().getFullYear();
   return (
-    <div className="bg-gray-800 text-white py-4 px-6 text-center fixed bottom-0 w-full">
+    <div className="bg-gray-800 text-white py-4 px-6 text-center bottom-0 w-full">
       <p className="mb-2">
         Created By
         <i className="fa-solid fa-heart text-red-500 mx-1"></i>
