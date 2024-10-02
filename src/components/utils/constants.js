@@ -7,9 +7,9 @@ export const MEAL_MINGLE_LIST_API_1 =
 export const CDN_URL =
   "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
 
-export const MEAL_MINGLE_MENU_API_URL = `${process.env.REACT_FOODFIRE_APP_BASE_URL}menu?page-type=REGULAR_MENU&complete-menu=true&lat=21.1702401&lng=72.83106070000001&&submitAction=ENTER&restaurantId=`;
+export const MEAL_MINGLE_MENU_API_URL = `${process.env.REACT_MEALMINGLE_APP_BASE_URL}menu?page-type=REGULAR_MENU&complete-menu=true&lat=21.1702401&lng=72.83106070000001&&submitAction=ENTER&restaurantId=`;
 
-export const MEAL_MINGLE_LIST_API = `${process.env.REACT_FOODFIRE_APP_BASE_URL}restaurants?lat=21.1702401&lng=72.83106070000001&page_type=DESKTOP_WEB_LISTING`;
+export const MEAL_MINGLE_LIST_API = `${process.env.REACT_MEALMINGLE_APP_BASE_URL}restaurants?lat=21.1702401&lng=72.83106070000001&page_type=DESKTOP_WEB_LISTING`;
 
 export const LOGO_URL =
   "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/delivery-logo-design-template-a27c923ba11012bd16506664a693629b_screen.jpg?ts=1694133068";
