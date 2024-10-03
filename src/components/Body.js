@@ -114,7 +114,7 @@ const Body = () => {
         </div>
       </div>
 
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap justify-center">
         {Array.isArray(filteredSearchList) && filteredSearchList.length > 0 ? (
           filteredSearchList.map((restaurant, index) => (
             <Link

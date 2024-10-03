@@ -5,7 +5,9 @@ import UserContext from "./utils/UserContext";
 const RestaurantCard = (props) => {
   const { restaurant } = props;
   const { info } = restaurant;
-  const { name, cuisines, sla, avgRating, cloudinaryImageId } = info;
+  console.log("info", info);
+  const { name, cuisines, sla, avgRating, cloudinaryImageId, costForTwo } =
+    info;
 
   return (
     <div className="p-4 m-4 w-[250px] bg-white shadow-lg rounded-lg hover:shadow-xl transition-shadow duration-300">
@@ -20,7 +22,6 @@ const RestaurantCard = (props) => {
       <h3 className="font-serif text-gray-600 max-w-[200px] truncate">
         {cuisines.join(", ")}
       </h3>
-      <h3 className="text-sm text-gray-500">{sla.slaString}</h3>
 
       <div className="flex items-center space-x-2 mt-2">
         <span
@@ -34,7 +35,10 @@ const RestaurantCard = (props) => {
         >
           ⭐ {avgRating}
         </span>
-        <span className="text-sm text-gray-600">Rating</span>
+        <span className="text-sm text-gray-500 font-bold">
+          {sla.lastMileTravelString}
+        </span>
+        <span className="text-sm text-gray-600 font-bold">{costForTwo}</span>
       </div>
     </div>
   );
