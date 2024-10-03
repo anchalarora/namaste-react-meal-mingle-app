@@ -25,19 +25,19 @@ const Header = () => {
       </div>
       <div className="flex items-center">
         <ul className="flex m-4">
-          <li className="px-4  text-gray-500 font-bold">
+          <li className="px-4 py-2  text-gray-500 font-bold">
             Online Status : {onlineStatus ? "✅ " : "❌"}
           </li>
-          <li className="px-4  text-gray-500 font-bold hover:bg-green-500 hover:px-3 hover:py-2 transition-all duration-300">
+          <li className="px-4 py-2  text-gray-500 font-bold hover:bg-green-500 hover:px-3 hover:py-2 transition-all duration-300">
             <Link to="/">Home</Link>
           </li>
-          <li className="px-4  text-gray-500 font-bold  hover:bg-green-500 hover:px-3 hover:py-2 transition-all duration-300">
+          <li className="px-4 py-2  text-gray-500 font-bold  hover:bg-green-500 hover:px-3 hover:py-2 transition-all duration-300">
             <Link to="/about">About</Link>
           </li>
-          <li className="px-4  text-gray-500 font-bold  hover:bg-green-500 hover:px-3 hover:py-2 transition-all duration-300">
+          <li className="px-4 py-2  text-gray-500 font-bold  hover:bg-green-500 hover:px-3 hover:py-2 transition-all duration-300">
             <Link to="/contact">Contact Us</Link>
           </li>
-          <li className="px-4  text-gray-500 font-bold  hover:bg-green-500 hover:px-3 hover:py-2 transition-all duration-300">
+          <li className="px-4 py-2  text-gray-500 font-bold  hover:bg-green-500 hover:px-3 hover:py-2 transition-all duration-300">
             <Link to="/cart">Cart - ({cartItems.length} items)</Link>
           </li>
           {/* <li className="px-4">
@@ -45,7 +45,7 @@ const Header = () => {
           </li> */}
           {/* <li className="px-4 font-bold  text-gray-500">{loggedInUser}</li> */}
           <button
-            className="px-4 font-bold  text-gray-500  hover:bg-green-500 hover:px-3 hover:py-2 transition-all duration-300"
+            className="px-4 py-2 font-bold  text-gray-500  hover:bg-green-500 hover:px-3 hover:py-2 transition-all duration-300"
             onClick={handleClick}
           >
             {btnName}
