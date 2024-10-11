@@ -48,7 +48,7 @@ const Header = () => {
             className="px-4 py-2 font-bold  text-gray-500  hover:bg-green-500 hover:px-3 hover:py-2 transition-all duration-300"
             onClick={handleClick}
           >
-            {btnName}
+            <Link to="/login">{btnName}</Link>
           </button>
         </ul>
       </div>
