@@ -1,6 +1,6 @@
 🍽️ Food Ordering App 🚀
 
-Welcome to the Food Ordering App! This project provides a seamless way to explore restaurants, view their menus, and manage your orders with an intuitive and responsive design. It's built to help you easily find and order from your favorite dining spots.
+Welcome to the Food Ordering App! Live at [MealMingle App](https://mealmingle-app.netlify.app/) This project provides a seamless way to explore restaurants, view their menus, and manage your orders with an intuitive and responsive design. It's built to help you easily find and order from your favorite dining spots.
 
 🚀 Features
 
@@ -9,7 +9,6 @@ Restaurant Listings: Fetch and display a list of restaurants with essential deta
 Menu Viewing: Browse through the menu items for each restaurant, complete with descriptions and prices.
 
 Cart Functionality: Add items to your cart, review your selections, and prepare for checkout.
-
 
 🛠️ Technologies Used
 
@@ -23,7 +22,6 @@ Tailwind CSS: For utility-first styling and a responsive layout.
 
 Redux Toolkit: For managing global state and cart functionality.
 
-
 🎉 Getting Started
 
 📋 Prerequisites
@@ -33,53 +31,56 @@ Ensure you have Node.js and npm (or Yarn) installed on your machine.
 🛠️ Installation
 Clone the repository:
 
-bash
+```bash
 git clone https://github.com/your-username/food-ordering-app.git
+```
 
 Navigate to your project directory:
 
-bash
+```bash
 cd food-ordering-app
+```
 
 Install the dependencies:
 
-bash
-
+```bash
 npm install
+```
 
 Or with Yarn:
 
-bash
-
+```bash
 yarn install
+```
 
 🚀 Running the App
 
 To start the development server and run the app locally:
 
-bash
-
+```bash
 npm start
+```
 
 Or with Yarn:
 
-bash
-
+```bash
 yarn start
+```
 
 The app will be available at http://localhost:1234 (default Parcel port).
 
 🏗️ Building for Production
 To create an optimized production build:
 
-bash
-
+```bash
 npm run build
+```
+
 Or with Yarn:
 
-bash
-
+```bash
 yarn build
+```
 
 The output will be in the dist directory, ready to be deployed.
 
