@@ -1,5 +1,5 @@
 pipeline {
-    agent any // This tells Jenkins to run the pipeline on any available agent
+    agent any // This tells Jenkins to run the pipeline on any available agents
 
     stages {
         stage('Hello') {
